@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -65,8 +66,8 @@ public class UserController {
 	}
 	
 	//@RequestMapping("/getUser.do")
-	@RequestMapping( value="getUser", method=RequestMethod.GET )
-	public String getUser( @RequestParam("userId") String userId , Model model ) throws Exception {
+	@RequestMapping( value="getUser/{userId}", method=RequestMethod.GET )
+	public String getUser( @PathVariable String userId , Model model ) throws Exception {
 		
 		System.out.println("/user/getUser : GET");
 		//Business Logic
@@ -79,8 +80,8 @@ public class UserController {
 	
 	//@RequestMapping("/updateUserView.do")
 	//public String updateUserView( @RequestParam("userId") String userId , Model model ) throws Exception{
-	@RequestMapping( value="updateUser", method=RequestMethod.GET )
-	public String updateUser( @RequestParam("userId") String userId , Model model ) throws Exception{
+	@RequestMapping( value="updateUser/{userId}", method=RequestMethod.GET )
+	public String updateUser( @PathVariable String userId , Model model ) throws Exception{
 
 		System.out.println("/user/updateUser : GET");
 		//Business Logic
