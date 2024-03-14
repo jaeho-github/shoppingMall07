@@ -136,7 +136,7 @@ if ( product == null) {
 					<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
 				</td>
 				
-				<c:if test = "${!empty param.menu && param.menu eq 'ok' }">
+				<c:if test = "${!empty menu && menu eq 'ok' }">
 					<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top: 3px;">
 						<a href="/product/listProduct/menu=manage">확인</a>
 					</td>
@@ -144,7 +144,7 @@ if ( product == null) {
 					<img src="/images/ct_btnbg03.gif" width="14" height="23">
 					</td>
 				</c:if>
-				<c:if test = "${!empty param.menu && param.menu ne 'ok' }">
+				<c:if test = "${!empty menu && menu ne 'ok' }">
 					<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top: 3px;">
 						<a href="/product/addPurchaseView/${product.prodNo }">구매</a>
 					</td>

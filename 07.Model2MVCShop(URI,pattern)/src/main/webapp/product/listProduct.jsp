@@ -39,7 +39,7 @@
 
 <div style="width:98%; margin-left:10px;">
 
-<form name="detailForm" action="/product/listProduct/${param.menu }" method="post">
+<form name="detailForm" action="/product/listProduct/${menu }" method="post">
 
 <table width="100%" height="37" border="0" cellpadding="0"	cellspacing="0">
 	<tr>
@@ -50,7 +50,7 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="93%" class="ct_ttl01">
-					${(!empty param.menu && param.menu eq 'search') ? '惑前 炼雀格废' : '惑前 包府'  }
+					${(!empty menu && menu eq 'search') ? '惑前 炼雀格废' : '惑前 包府'  }
 					</td>
 				</tr>
 			</table>
@@ -145,7 +145,7 @@
 			<td align="center">${i}</td>
 			<td></td>		
 			<td align="left">
-				<a href="/product/getProduct/${product.prodNo }/${param.menu }">${product.prodName }</a>
+				<a href="/product/getProduct/${product.prodNo }/${menu }">${product.prodName }</a>
 			</td>
 			<td></td>
 			<td align="left">${product.price }</td>

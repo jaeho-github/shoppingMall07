@@ -104,6 +104,7 @@ public class ProductController {
 		Product product = productService.getProduct(prodNo);
 		// Model 과 View 연결
 		model.addAttribute("product", product);
+		model.addAttribute("menu", menu);
 		
 		if (menu.equals("manage")) {
 			return "forward:/product/updateProductView.jsp";
@@ -137,12 +138,13 @@ public class ProductController {
 		//Business Logic
 		productService.updateProduct(product);
 		
-		return "forward:/product/getProduct";
+		return "forward:/product/getProduct"; //getproduct하려면 prodNo 넘겨줘야하잖니 ..
+												//menu도 줘야하나? 아마 줘야할듯
 	}
 	
 //	@RequestMapping("/listProduct.do")
-	@RequestMapping(value = "listProduct")
-	public String listProduct( @ModelAttribute("search") Search search , Model model , HttpServletRequest request) throws Exception{
+	@RequestMapping(value = "listProduct/{menu}")
+	public String listProduct(@PathVariable String menu, @ModelAttribute("search") Search search , Model model , HttpServletRequest request) throws Exception{
 		
 		System.out.println("/product/listProduct : GET / POST");
 		
@@ -161,6 +163,8 @@ public class ProductController {
 		model.addAttribute("list", map.get("list"));
 		model.addAttribute("resultPage", resultPage);
 		model.addAttribute("search", search);
+		
+		model.addAttribute("menu", menu);
 		
 		return "forward:/product/listProduct.jsp";
 	}
