@@ -132,14 +132,17 @@ public class ProductController {
 	
 //	@RequestMapping("/updateProduct.do")
 	@RequestMapping(value = "updateProduct", method = RequestMethod.POST)
-	public String updateProduct( @ModelAttribute("product") Product product , Model model) throws Exception{
+	public String updateProduct( @ModelAttribute("product") Product product, 
+								@RequestParam("menu") String menu, Model model) throws Exception{
 
 		System.out.println("/product/updateProduct : POST");
 		//Business Logic
 		productService.updateProduct(product);
 		
-		return "forward:/product/getProduct"; //getproduct하려면 prodNo 넘겨줘야하잖니 ..
-												//menu도 줘야하나? 아마 줘야할듯
+		model.addAttribute("prodNo", product.getProdNo());
+		
+		return "redirect:/product/getProduct/"+product.getProdNo()+"/"+menu;
+												
 	}
 	
 //	@RequestMapping("/listProduct.do")
